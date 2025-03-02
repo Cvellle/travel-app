@@ -1,0 +1,50 @@
+/** @type {import('next').NextConfig} */
+
+const nextConfig = {
+  reactStrictMode: true,
+  i18n: {
+    locales: ['sr', 'en'],
+    defaultLocale: 'sr',
+    localeDetection: false,
+  },
+  images: {
+    domains: [
+      'images.unsplash.com',
+      'lorempixel.com',
+      'picsum.photos',
+      'dynamic-media-cdn.tripadvisor.com',
+      'cf.bstatic.com',
+      't-cf.bstatic.com',
+      'etaturs.rs',
+      'www.etaturs.rs',
+      'fantast.rs',
+      'www.fantast.rs',
+      'filiptravel.rs',
+      'www.filiptravel.rs',
+      'cms.filiptravel.rs',
+      'gallileo.me',
+      'www.gallileo.me',
+      'guliver.me',
+      'www.guliver.me',
+      'istratoursdoboj.com',
+      'www.istratoursdoboj.com',
+      'modenatravel.com',
+      'www.modenatravel.com',
+      'nehartravel.com.mk',
+      'www.nehartravel.com.mk',
+      'robinson.rs',
+      'www.robinson.rs',
+      'online.savana.travel',
+      'www.online.savana.travel',
+      'cdn.travitude.co.uk',
+      'prevozvukovic.com',
+      'www.prevozvukovic.com',
+      'teos.travel',
+      'www.teos.travel',
+      'images.trvl-media.com',
+      'exp.cdn-hotels.com',
+    ],
+  },
+};
+
+module.exports = nextConfig;

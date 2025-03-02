@@ -1,0 +1,49 @@
+stages:
+  - build
+  - deploy
+
+build-image:
+  stage: build
+  image: docker:dind
+  services:
+    - docker:dind
+  tags:
+    - docker
+  environment:
+    name: dev
+    url: travelapp-fe.qlab.network
+  rules:
+    - if: $CI_COMMIT_BRANCH == "dev"
+  variables:
+    DOCKER_IMAGE: quantox/dev
+    DOCKER_TAG: travelapp-fe
+  before_script:
+    - echo "$DOT_ENV" > .env
+    - docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASSWORD}
+  script:
+    - docker build --tag "${DOCKER_IMAGE}":${DOCKER_TAG} .
+    - docker push "${DOCKER_IMAGE}":${DOCKER_TAG}
+
+deploy:
+  stage: deploy
+  tags:
+    - shell
+  environment:
+    name: dev
+    url: travelapp-fe.qlab.network
+  rules:
+    - if: $CI_COMMIT_BRANCH == "dev"
+  variables:
+    DOCKER_IMAGE: quantox/dev
+    DOCKER_TAG: travelapp-fe
+    SERVICE_NAME: travelapp-fe_stage
+  before_script:
+    - 'command -v ssh-agent >/dev/null || ( apt-get update -y && apt-get install openssh-client -y )'
+    - eval $(ssh-agent -s)
+    - echo "${SSH_PRIVATE_KEY}" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - echo "${SSH_KNOWN_HOSTS}" > ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+  script:
+    - ssh ${DEV_SERVER_SSH} "docker service update --force --image "${DOCKER_IMAGE}":${DOCKER_TAG} --with-registry-auth ${SERVICE_NAME}"

@@ -1,0 +1,3 @@
+/*
+ * Get token from cookie
+ */

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "A",
+    "title": "A. Opšte",
+    "content": "Korišćenjem portala TravelApp i svih njegovih delova svaki korisnik prihvata važeća pravila korišćenja. Rezervacijom aranžmana na portalu TravelApp smatramo da ste se složili sa Uslovima korišćenja. Molimo Vas da pažljivo pročitate Uslove korišćenja. Ukoliko ne prihvatate Uslove korišćenja molimo Vas da ne koristite portal TravelApp. Portal TravelApp zadržava prava izmene Uslova korišćenja u svakom trenutku, o čemu će korisnici biti blagovremeno obavešteni"
+  },
+  {
+    "id": "B",
+    "title": "B. Sadržaj",
+    "content": "Portal TravelApp se sastoji od vlastitih sadržaja vlasnika portala, sadržaja organizatora turističkih putovanja, oglašivača, besplatnih sadržaja, sadržaja koji kreiraju posetioci, i upućivanja na druge stranice (linkovi)."
+  },
+  {
+    "id": "C",
+    "title": "C. Odgovornost",
+    "content": "Nismo odgovorni za eventualne greške ili netačne informacije u pogledu sadržaja koji unose korisnici sajta. Materijal na sajtu Vam je besplatno stavljen na raspolaganje, a u skladu sa ovde navedenim pravilima korišćenja koristite ga slobodno i na vlastitu odgovornost, te se vlasnik portala TravelApp ne može smatrati odgovornim za štetu koja je eventualno nastala korišćenjem sadržaja ovog portala"
+  },
+  {
+    "id": "D",
+    "title": "D. Informativni karakter",
+    "content": "Cofer DOO za TravelApp portal, uređuje opšte podatke o destinacijama, gradovima i hotelima, koji su neobavezujućeg, opšte informativnog karaktera. Za konkretne karakteristike hotela u agencijskim ponudama, njegovu kategorizaciju, udaljenost od plaže i sve ostale bitne informacije, koje su značajne za izbor aranžmana koji se kupuje, za putnike je relevantan isljučivo onaj opis koji je obezbedila agencija koja je organizator konkretnog turističkog putovanja, a koji je takođe moguće pročitati na sajtu."
+  }
+]
