@@ -41,6 +41,7 @@ const Register = () => {
   async function onSubmit(data) {
     const signupData = {
       email: data.email,
+      username: data.email,
       password: data.password,
     };
 

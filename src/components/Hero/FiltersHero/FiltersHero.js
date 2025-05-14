@@ -627,7 +627,7 @@ export const FiltersHero = ({
                                     <Text
                                       css={{
                                         '&:hover': {
-                                          color: 'white',
+                                          // color: 'white',
                                           fontWeight: 'bold',
                                           background: '#161C37',
                                         },

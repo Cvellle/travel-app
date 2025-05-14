@@ -38,8 +38,9 @@ export default function Login() {
   const { errors } = formState;
 
   async function onSubmit(data) {
-    await login(data);
-
+    let a = await login(data);
+ console.log(a);
+ 
     router.push('/');
   }
 

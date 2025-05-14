@@ -111,15 +111,18 @@ const NavBar = () => {
               disallowEmptySelection
               selectionMode="single"
               selectedKeys={selected}
-              onSelectionChange={setSelected}
+              onSelectionChange={(r)=>{
+                alert(otherLocale)
+                alert(route)
+                setSelected(r)}}
             >
-              <Dropdown.Item key="SR" textValue="serbian">
-                <NextLink href={route} locale={otherLocale}>
+              <Dropdown.Item key="sr" textValue="serbian">
+                <NextLink href={route} locale={'sr'}>
                   {t('Hero.nav:languageSerbian', { locale: otherLocale })}
                 </NextLink>
               </Dropdown.Item>
-              <Dropdown.Item key="EN" textValue="english">
-                <NextLink href={route} locale={otherLocale}>
+              <Dropdown.Item key="en" textValue="english">
+                <NextLink href={route} locale={'en'}>
                   {t('Hero.nav:languageEnglish', { locale: otherLocale })}
                 </NextLink>
               </Dropdown.Item>

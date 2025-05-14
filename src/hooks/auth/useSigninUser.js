@@ -3,12 +3,15 @@ import { setCookie } from 'cookies-next';
 
 import { signinUser } from '@/features/auth/api/login';
 
-export const useSigninUser = () => {
+export const useSigninUser = () => { 
   return useMutation((data) => signinUser(data), {
     onSuccess(resp) {
-      setCookie('accessToken', resp.access_token);
-      setCookie('refreshToken', resp.refresh_token);
-      setCookie('refreshTokenId', resp.refresh_token_id);
+      alert('s')
+      console.log(123, resp);
+      
+      setCookie('accessToken', resp.accessTtoken);
+      setCookie('refreshToken', resp.refreshToken);
+      // setCookie('refreshTokenId', resp.refreshToken_id);
     },
   });
 };

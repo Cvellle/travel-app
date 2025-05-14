@@ -1,7 +1,7 @@
 import { axios } from '@/lib/axios';
 
-export const signinUser = (data) =>
-  axios({
+export const signinUser = (data) => {
+  return axios({
     method: 'post',
     url: '/api/auth/signin',
     data: {
@@ -9,4 +9,4 @@ export const signinUser = (data) =>
       password: data.password,
       role: 'USER',
     },
-  });
+  })};

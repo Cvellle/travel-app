@@ -14,7 +14,7 @@ import { storage } from '@/utils/storage';
 import { googleLogin } from '@/features/auth/api/googleLogin';
 
 async function handleUserResponse(data) {
-  const decodedToken = jwt_decode(data.refresh_token);
+  const decodedToken = jwt_decode(data.refreshToken);
   const expirationTimestamp = decodedToken.exp * 1000;
   const expirationDate = new Date(expirationTimestamp);
 
@@ -24,13 +24,13 @@ async function handleUserResponse(data) {
 
   console.log('from handle user response');
 
-  const user = await getLoggedInUser();
+  // const user = await getLoggedInUser();
 
-  return user;
+  return data;
 }
 
 async function loadUser() {
-  if (getCookie('access_token')) {
+  if (getCookie('accessToken')) {
     try {
       const data = await getLoggedInUser();
 
@@ -76,15 +76,15 @@ async function registerFn(data) {
 
 async function logoutFn() {
   try {
-    const refreshTokenId = getCookie('refresh_token_id');
+    const refreshTokenId = getCookie('refreshTtoken_id');
 
     if (!refreshTokenId) return;
 
     await signout(refreshTokenId);
 
-    deleteCookie('access_token');
-    deleteCookie('refresh_token');
-    deleteCookie('refresh_token_id');
+    deleteCookie('accessToken');
+    deleteCookie('refreshToken');
+    deleteCookie('refreshToken_id');
   } catch (error) {
     console.log('logout error: ', error);
     return error;

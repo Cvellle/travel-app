@@ -6,7 +6,7 @@ import { appConfig } from '@/config/index';
 import { refreshToken } from '@/features/auth';
 
 function authRequestInterceptor(config) {
-  const token = getCookie('access_token');
+  const token = getCookie('accessToken');
 
   if (token && !config.url.includes('refresh')) {
     config.headers.authorization = `Bearer ${token}`;
@@ -30,11 +30,11 @@ axios.interceptors.response.use(
   async (error) => {
     const originalRequest = error.config;
 
-    if (error.response.status === 401 && !originalRequest._retry) {
+    if (error?.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
 
-      const oldRefreshToken = getCookie('refresh_token');
-      const oldRefreshTokenId = getCookie('refresh_token_id');
+      const oldRefreshToken = getCookie('refreshToken');
+      const oldRefreshTokenId = getCookie('refreshToken_id');
 
       try {
         const newTokens = await refreshToken({
@@ -42,7 +42,7 @@ axios.interceptors.response.use(
           refreshTokenId: oldRefreshTokenId,
         });
 
-        const decodedToken = jwt_decode(newTokens.refresh_token);
+        const decodedToken = jwt_decode(newTokens.refreshToken);
         const expirationTimestamp = decodedToken.exp * 1000;
         const expirationDate = new Date(expirationTimestamp);
 
