@@ -31,6 +31,7 @@ const AuthLayout = ({ children }) => {
         <Link href="/">
           <NextUILink css={{ cursor: 'pointer', color: 'white' }}>
             {/* Logo */}
+            Go to homepage
           </NextUILink>
         </Link>
         <div
