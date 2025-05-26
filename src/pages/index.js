@@ -96,7 +96,7 @@ export default function Home() {
       price: '109€',
       logo: 'https://fantast.rs/images/logo_mob.png',
       image:
-        'https://go2travelling.net/wp-content/uploads/2019/11/istanbul_blog.jpg',
+        'https://belvi.rs/wp-content/uploads/2024/10/copycopy-800x500-4.png',
     },
     {
       id: 4,
@@ -132,7 +132,7 @@ export default function Home() {
       price: '79€',
       logo: 'https://mojakartica.rs/wp-content/uploads/2019/12/robinzon.jpg',
       image:
-        'https://go2travelling.net/wp-content/uploads/2019/11/istanbul_blog.jpg',
+        'https://fullmoonbudapest.com/wp-content/uploads/2023/09/web01.png',
     },
     {
       id: 7,
@@ -165,33 +165,10 @@ export default function Home() {
       lastMinute: false,
       popularOffer: true,
       isPopular: false,
-      price: '179€',
-      logo: 'https://balkanfun.travel/sites/default/files/Balkan-Fun-Logo-od-2009.png',
-      image:
-        'https://www.funtravelnis.rs/wp-content/uploads/2019/09/Morocco_Rif.jpg',
-    },
-    {
-      id: 10,
-      name: 'Morroco',
-      country: 'Morroco',
-      lastMinute: false,
-      popularOffer: true,
-      isPopular: false,
       price: '189€',
       logo: 'https://pbs.twimg.com/profile_images/562940334192095232/0YtDRjSK_400x400.jpeg',
       image:
         'http://www.love2travel.rs/source/storage/trips/May2019/Love%202%20Travel%20-%20%C4%8Cudesni%20Maroko%2011%20dna%20(8).jpg',
-    },
-    {
-      id: 11,
-      name: 'Morroco',
-      country: 'Morroco',
-      lastMinute: false,
-      popularOffer: true,
-      isPopular: true,
-      price: '159€',
-      logo: 'https://www.kontiki.rs/deploy/images/logo.png',
-      image: 'https://www.portotravel.rs/wp-content/uploads/2017/09/maroko.jpg',
     },
   ];
 
@@ -387,9 +364,8 @@ export async function getStaticProps({ locale }) {
 
   return {
     props: {
-      textContent: (
-        await import(`../../locales/${locale}/translations.json`)
-      ).default,
+      textContent: (await import(`../../locales/${locale}/translations.json`))
+        .default,
       heroBgImage: getRandomItem(heroImages),
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },

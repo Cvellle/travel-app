@@ -19,29 +19,39 @@ const AuthLayout = ({ children }) => {
 
   return (
     <div>
-      <AuthHeader>
+      <AuthHeader
+        css={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '1rem',
+          backgroundColor: '#0070f3',
+        }}
+      >
         <Link href="/">
           <NextUILink css={{ cursor: 'pointer', color: 'white' }}>
-            Logo
+            {/* Logo */}
           </NextUILink>
         </Link>
-        <div>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}
+        >
           {route === 'register' && (
-            <span>
-              {t('already')}
-              <Link href="/auth/login">
-                <NextUILink css={{ color: 'white', p: '1rem' }}>
-                  {t('loginBtn')}
-                </NextUILink>
-              </Link>
-            </span>
+            <Link href="/auth/login">
+              <NextUILink css={{ color: 'white', p: '1rem', display: 'flex', nowrap: 'nowrap' }}>
+                {t('already')}: {t('loginBtn')}
+              </NextUILink>
+            </Link>
           )}
           {route === 'login' && (
-            <span>
-              {t('yet')}
+            <span>              
               <Link href="/auth/register">
                 <NextUILink css={{ color: 'white', p: '1rem' }}>
-                  {t('registerBtn')}
+                 {t('yet')}: {t('registerBtn')}
                 </NextUILink>
               </Link>
             </span>

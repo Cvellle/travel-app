@@ -14,6 +14,7 @@ export default function DestinationCard({ destination, bgImage }) {
           backgroundColor: 'rgba(255, 255, 255, 0.85)',
           display: 'flex',
           justifyContent: 'center',
+          margin: '8px',
 
           '@mdMax': {
             borderRadius: '0 0 4px 4px',
@@ -30,13 +31,14 @@ export default function DestinationCard({ destination, bgImage }) {
             },
           }}
         >
-          {/* ??? */}
           {/* <Text> {'destination.agency'}</Text> */}
         </Card.Header>
         <Card.Body css={{ mx: 'auto', p: '0' }}>
           <Text
             css={{
               fontSize: '24px',
+              display: 'flex',
+              justifyContent: 'center', 
               '@mdMax': {
                 fontSize: '16px',
                 marginLeft: '13px',
@@ -65,6 +67,8 @@ export default function DestinationCard({ destination, bgImage }) {
               p: '14px 22px',
               borderRadius: '10px',
               gap: '10px',
+              display: 'flex',
+              justifyContent: 'center',
 
               '@mdMax': {
                 backgroundColor: 'unset',
