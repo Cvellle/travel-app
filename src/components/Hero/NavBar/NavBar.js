@@ -24,6 +24,7 @@ const NavBar = () => {
   const isMd = useMediaQuery(960);
 
   const { locale, locales, route } = useRouter();
+  const router = useRouter();
 
   const { user, logout } = useAuth();
 
@@ -111,20 +112,19 @@ const NavBar = () => {
               disallowEmptySelection
               selectionMode="single"
               selectedKeys={selected}
-              onSelectionChange={(r)=>{
-                alert(otherLocale)
-                alert(route)
-                setSelected(r)}}
+              onSelectionChange={(keys) => {
+                const selectedLocale = Array.from(keys)[0];
+                setSelected(keys);
+                if (selectedLocale && selectedLocale !== locale) {
+                  router.push(route, route, { locale: selectedLocale });
+                }
+              }}
             >
               <Dropdown.Item key="sr" textValue="serbian">
-                <NextLink href={route} locale={'sr'}>
-                  {t('Hero.nav:languageSerbian', { locale: otherLocale })}
-                </NextLink>
+                {t('Hero.nav:languageSerbian')}
               </Dropdown.Item>
               <Dropdown.Item key="en" textValue="english">
-                <NextLink href={route} locale={'en'}>
-                  {t('Hero.nav:languageEnglish', { locale: otherLocale })}
-                </NextLink>
+                {t('Hero.nav:languageEnglish')}
               </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>

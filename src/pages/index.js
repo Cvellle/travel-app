@@ -380,16 +380,17 @@ Home.getLayout = function getLayout(page) {
   return <MainLayout>{page}</MainLayout>;
 };
 
-export async function getServerSideProps({ locale }) {
-  const heroBgImage = getRandomItem(heroImages);
+export async function getStaticProps({ locale }) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery('fetchHomeData', fetchHomeData);
+
   return {
     props: {
-      textContent: (await import(`../../locales/${locale}/translations.json`))
-        .default,
-      heroBgImage,
+      textContent: (
+        await import(`../../locales/${locale}/translations.json`)
+      ).default,
+      heroBgImage: getRandomItem(heroImages),
       dehydratedState: JSON.parse(JSON.stringify(dehydrate(queryClient))),
     },
   };
